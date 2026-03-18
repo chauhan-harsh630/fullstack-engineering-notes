@@ -7,14 +7,15 @@ Structured documentation and practical notes from a 6-month Full Stack Engineeri
 ## 📁 Repository Structure
 
 ```
-fullstack-engineering-notes/
+fullstack-foundation-docs/
 │
 ├── 01-Internet-Basics/
 ├── 02-HTML-CSS/
 ├── 03-JavaScript/
-├── 04-NodeJS/
-├── 05-Express/
-├── 06-Git/
+├── 04-Git/
+├── 05-ReactJS/
+├── 06-NodeJS/
+├── 07-Express/
 │
 └── resources.md
 ```
