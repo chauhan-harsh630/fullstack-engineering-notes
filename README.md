@@ -45,6 +45,9 @@ fullstack-foundation-docs/
 
 ## 🛠 How To Use
 
+**👉 [Start Here: Read the Foundation Docs Index](./fullstack-foundation-docs/README.md)**
+
+
 1. Follow folders in numeric order.
 2. Read the concept.
 3. Implement small examples.
