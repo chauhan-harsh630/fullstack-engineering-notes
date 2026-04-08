@@ -29,7 +29,7 @@ Welcome to the foundation docs. This guide explains how to read through the note
 
 ### 5. [ReactJs](./05_ReactJs/)
 *Frontend framework fundamentals for building user interfaces.*
-- [basic_react.md](./05_ReactJs/basic_react.md): Core concepts of React, including JSX, component reusability, props, hooks, and standard project structure.
+- [Core_Fundamentals.md](./05_ReactJs/Core_Fundamentals.md): Core concepts of React, including JSX, component reusability, props, hooks, and standard project structure.
 
 ---
 

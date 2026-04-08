@@ -1,6 +1,6 @@
 # Full Stack Engineering Notes
 
-Structured documentation and practical notes from a 6-month Full Stack Engineering roadmap focused on backend-first development, system fundamentals, and interview preparation.
+Structured documentation and practical notes from a 12-month Full Stack Engineering roadmap focused on backend-first development, system fundamentals, and interview preparation.
 
 ---
 
