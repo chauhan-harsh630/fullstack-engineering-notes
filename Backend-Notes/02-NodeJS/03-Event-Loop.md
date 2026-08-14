@@ -10,16 +10,6 @@ Instead of waiting for slow tasks like reading files or making API calls, Node.j
 
 ---
 
-# Node.js Event Loop Overview
-
-> Before learning the Event Loop phases, understand how JavaScript travels through the Node.js runtime.
-
-![Node.js Internals Architecture](fullstack-engineering-notes\Backend-Notes\NodeJS\assets\Node.js internals architecture diagram.png)
-
-*Figure: High-level architecture of Node.js showing the V8 Engine, Call Stack, Event Loop, libuv, Thread Pool, Operating System, and callback queues.*
-
----
-
 # Why Do We Need the Event Loop?
 
 Suppose your application needs to:
@@ -209,97 +199,6 @@ End
 Reading Completed
 ```
 
-### Execution
-
-### Step 1
-
-```js
-console.log("Start");
-```
-
-Output
-
-```text
-Start
-```
-
----
-
-### Step 2
-
-Node.js encounters
-
-```js
-fs.readFile(...)
-```
-
-Instead of waiting,
-
-Node.js delegates the task to **libuv**.
-
----
-
-### Step 3
-
-Execution continues.
-
-```js
-console.log("End");
-```
-
-Output
-
-```text
-Start
-End
-```
-
----
-
-### Step 4
-
-The file is read in the background.
-
----
-
-### Step 5
-
-After reading completes,
-
-the callback enters the Callback Queue.
-
----
-
-### Step 6
-
-The Event Loop checks
-
-```text
-Call Stack Empty?
-```
-
-If Yes,
-
-the callback moves to the Call Stack.
-
----
-
-### Step 7
-
-Output
-
-```text
-Reading Completed
-```
-
-Final Output
-
-```text
-Start
-End
-Reading Completed
-```
-
 ---
 
 # Event Loop Phases
@@ -468,64 +367,7 @@ Lowest
 
 ---
 
-# Example 1
-
-```js
-console.log("1");
-
-setTimeout(() => {
-    console.log("2");
-}, 0);
-
-console.log("3");
-```
-
-Output
-
-```text
-1
-3
-2
-```
-
-Why?
-
-The timer callback waits until synchronous code finishes and the Event Loop reaches the Timers phase.
-
----
-
-# Example 2
-
-```js
-console.log("Start");
-
-setTimeout(() => {
-    console.log("Timeout");
-}, 0);
-
-Promise.resolve().then(() => {
-    console.log("Promise");
-});
-
-console.log("End");
-```
-
-Output
-
-```text
-Start
-End
-Promise
-Timeout
-```
-
-Reason
-
-Promises are executed before timers.
-
----
-
-# Example 3
+# Examples of Execution Order
 
 ```js
 console.log("Start");
@@ -554,35 +396,6 @@ Next Tick
 Promise
 Timer
 ```
-
-Reason
-
-Execution order:
-
-1. Synchronous code
-2. process.nextTick()
-3. Promise Microtasks
-4. Timers
-
----
-
-# Common Mistakes
-
-❌ Thinking Node.js creates a new thread for every request.
-
-✔ JavaScript runs on one thread. Background work is delegated to libuv.
-
----
-
-❌ Thinking `setTimeout(fn, 0)` runs immediately.
-
-✔ It runs during the Timers phase after synchronous code and higher-priority queues.
-
----
-
-❌ Thinking Promises are part of the Callback Queue.
-
-✔ Promises use the **Microtask Queue**, which has higher priority.
 
 ---
 
@@ -625,23 +438,6 @@ Promise.then()
 ```
 
 **Answer:** `process.nextTick()` because the Next Tick Queue has the highest priority in Node.js.
-
----
-
-## 6. Does the Event Loop create new threads?
-
-No. The Event Loop runs on the main thread. Background tasks are handled by libuv and the operating system.
-
----
-
-## 7. What are the six phases of the Event Loop?
-
-1. Timers
-2. Pending Callbacks
-3. Idle / Prepare
-4. Poll
-5. Check
-6. Close Callbacks
 
 ---
 

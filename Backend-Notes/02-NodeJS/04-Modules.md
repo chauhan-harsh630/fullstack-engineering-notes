@@ -382,13 +382,7 @@ package.json
 
 Method 2
 
-Use
-
-```text
-.mjs
-```
-
-extension.
+Use `.mjs` extension.
 
 ---
 
@@ -510,92 +504,6 @@ The module is executed only once.
 
 ---
 
-# Built-in Module Examples
-
-## File System
-
-```js
-const fs = require("fs");
-```
-
----
-
-## HTTP
-
-```js
-const http = require("http");
-```
-
----
-
-## Path
-
-```js
-const path = require("path");
-```
-
----
-
-## OS
-
-```js
-const os = require("os");
-```
-
----
-
-## Crypto
-
-```js
-const crypto = require("crypto");
-```
-
----
-
-# Common Mistakes
-
-❌ Forgetting `./`
-
-```js
-require("math")
-```
-
-Node.js searches inside `node_modules`.
-
-Correct
-
-```js
-require("./math")
-```
-
----
-
-❌ Using `exports = {}`
-
-Wrong
-
-```js
-exports = {
-    add
-};
-```
-
-Correct
-
-```js
-module.exports = {
-    add
-};
-```
-
----
-
-❌ Mixing CommonJS and ES Modules incorrectly.
-
-Choose one module system per project unless you understand interoperability.
-
----
-
 # CommonJS vs ES Modules
 
 | CommonJS | ES Modules |
@@ -645,22 +553,6 @@ It exports values from a module so they can be used in other files.
 ## 6. What is module caching?
 
 When a module is first loaded, Node.js caches it. Subsequent `require()` calls return the cached module instead of reloading it.
-
----
-
-## 7. What is the difference between CommonJS and ES Modules?
-
-CommonJS uses `require()` and `module.exports`, while ES Modules use `import` and `export`.
-
----
-
-## 8. Why do we use modules?
-
-- Organize code
-- Reuse functionality
-- Improve maintainability
-- Enable team collaboration
-- Reduce code duplication
 
 ---
 
