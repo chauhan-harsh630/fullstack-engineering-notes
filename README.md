@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Full Stack Engineering Notes
+#  Full Stack Engineering Notes
 
 ### Engineering Documentation for Modern Web Development
 
