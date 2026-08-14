@@ -153,7 +153,7 @@ Software Engineering Documentation • Backend Systems • Full Stack Developmen
 
 ---
 
-<a href="https://github.com/chauhan-harsh630">
+<a href="https://github.com/harsh-chauhan-dev">
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
 </a>
 
